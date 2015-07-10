@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mon application ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse col-lg-10  col-lg-offset-1">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="Brand" src="~/Content/images/logo.jpg">
+            </a>
+
+            @Html.ActionLink(" ", "Index", new { area = "", controller = "Home" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-brand">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Accueil", "Index", new { area = "", controller = "Home" })</li>
+                <li>@Html.ActionLink("À propos de", "About", new { area = "", controller = "Home" })</li>
+                <li>@Html.ActionLink("Contact", "Contact",  new { area = "", controller = "Home" })</li>
+                <li>@Html.ActionLink("Admin resto", "Index", "Restaurants", new { area = "Administration" }, null)</li>
+            </ul>
+        </div>
+
+    </nav>
+    <section class="col-lg-10  col-lg-offset-1 ">
+
+        <div class=" WrapperContent">
+            <section class="col-lg-10 ">
+                @RenderBody()
+            </section>
+            <aside class="col-lg-2">
+
+                    @Html.Partial("_LoginPartial")
+
+            </aside>
+            <footer class="col-lg-12 ">
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+    </section>
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

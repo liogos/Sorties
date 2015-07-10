@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Sorties.Models.Restaurants>
+
+@{
+    ViewBag.Title = "Liste des restaurants";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Liste des restaurants</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Web)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adresse)
+        </th>
+        <th>@Html.DisplayNameFor(model => model.Localite)</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telephone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Web)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adresse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Localite.cp) @Html.DisplayFor(modelItem => item.Localite.localite)
+        </td>
+    </tr>
+}
+
+</table>
